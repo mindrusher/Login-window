@@ -14,7 +14,6 @@ text1 = html.escape(text1)
 text2 = html.escape(text2)
 
 answer = req.get_log_pas(text1, text2)
-#a = req.cookie()
 
 print("Content-type: text/html\n")
 print(answer)
