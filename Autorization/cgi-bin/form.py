@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import cgi
 import html
-#import pyodbc
 
 from request import Request
 
