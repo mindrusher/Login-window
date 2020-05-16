@@ -67,9 +67,6 @@ class Request:
         self.conn.close()
         return fail 
 
-# req = Request()
-# a = req.get_log_pas('1q', '2w')
-# print(a)
 
 
 
