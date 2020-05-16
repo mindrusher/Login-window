@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Обработка данных форм</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+    <script>
+        $(function(){
+            $(".entry").click(function(){
+                var check = true
+                $('.form-data').find('input').each(function() {
+                    if ($(this).val() == '') {
+                        $(this).addClass('empty-field');
+                    }
+                });
+                  
+                $('.form-data').find('input').each(function() {
+                    if ($(this).hasClass('empty-field')) {
+                        check = false;
+                    }
+                });
+
+                if (check == false) {
+                    alert('Введите Логин и Пароль');
+                } else {
+                    $('.form-data').prop({'action': '/cgi-bin/form.py', 'method': 'post'});
+                }
+                
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <form method = "get" action="#" class="form-data">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Введите имя пользователя</label>
+                    <input type="text" class="form-control input-data" id="formGroupExampleInput" placeholder="Логин" name="TEXT_1">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Введите пароль</label>
+                    <input type="text" class="form-control input-data" id="formGroupExampleInput2" placeholder="Пароль" name="TEXT_2">
+                </div>
+            </div>
+            <div class="form-group btn-send">
+                <button type="submit" class="btn btn-primary entry">Войти</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
